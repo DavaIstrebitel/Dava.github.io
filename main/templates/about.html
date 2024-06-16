@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас</title>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>О нас</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'about' %}">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="about-container">
+            <h1>О нас</h1>
+            <p>Мы помогаем учащимся выбрать подходящий колледж или университет на основе их предпочтений и местоположения. Наша цель - сделать процесс выбора образовательного учреждения проще и удобнее.</p>
+            <p>С помощью нашей системы вы можете легко найти колледж или университет, который соответствует вашим требованиям и предпочтениям. Мы используем современные технологии и ИИ для предоставления лучших рекомендаций.</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pathpik. Все права защищены.</p>
+    </footer>
+</body>
+</html>

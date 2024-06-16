@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор учебного заведения. Pathpik</title>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#region-search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#region option").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Выбор Учебного заведения</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'about' %}">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="form-container">
+            <h1>Выберите Класс и Город</h1>
+            <form action="{% url 'submit_form' %}" method="post">
+                {% csrf_token %}
+                <label for="class">Класс:</label>
+                {{ form.selected_class }}
+                <br><br>
+                <label for="region">Город:</label>
+                {{ form.region }}
+                <br><br>
+                <label for="preferences">Предпочтения:</label>
+                {{ form.preferences }}
+                <br><br>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pathpik. Все права защищены.</p>
+    </footer>
+</body>
+</html>
